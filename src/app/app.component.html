@@ -1,1 +1,17 @@
 <app-navbar></app-navbar>
+
+<div class="container text-center mt-4">
+
+    <h1>
+        Welcome to the GitHub Viewer<br />
+        <small>Type in a valid GitHub username to get started!</small>
+    </h1>
+
+    <form action="#">
+        <input class="mt-5" id="username" type="text" placeholder="Username" [(ngModel)]="username" name="username" />
+        <input type="submit" class="btn btn-primary" id="submit" value="Search">
+    </form>
+
+</div>
+
+<app-footer></app-footer>

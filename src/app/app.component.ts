@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
+import { Profile } from './github.api.interface';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,13 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit {
   constructor(private appService: AppService) { }
 
+  public user$: Profile | Object = {};
+
   ngOnInit(): void {
-    console.log(this.appService.getPrimes(5));
-    console.log(this.appService.range(1, 100));
+    this.appService.getUsers().subscribe((user$: Profile) => {
+      this.user$ = user$;
+    });
   }
+
+  public username: string;
 }
