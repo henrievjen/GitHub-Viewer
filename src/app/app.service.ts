@@ -11,8 +11,8 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<Profile> {
-    return this.http.get<Profile>("https://api.github.com/users/henrievjen").pipe(
+  getUsers(user): Observable<Profile> {
+    return this.http.get<Profile>("https://api.github.com/users/" + user).pipe(
       catchError(this.handleError)
     );
   }
