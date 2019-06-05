@@ -13,11 +13,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  public user$: Profile | Object = {};
-
   private setUser(user) {
-    this.appService.getUsers(user).subscribe((user$: Profile) => {
-      this.user$ = user$;
+     this.appService.getUsers(user).subscribe((user$: Profile) => {
+      this.appService.user$ = user$;
     });
   }
 

@@ -1,5 +1,3 @@
-<app-navbar></app-navbar>
-
-<p>Username: {{username}}</p>
-
-<app-footer></app-footer>
+<p>Username: {{this.appService.user$.login}}</p>
+<p>ID: {{this.appService.user$.id}}</p>
+<p>Followers: {{this.appService.user$.followers}}</p>
