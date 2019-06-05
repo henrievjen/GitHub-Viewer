@@ -1,0 +1,10 @@
+#profile-img {
+    width: 250px;
+    height: auto;
+}
+
+@media only screen and (max-width: 350px) {
+    #profile-img {
+        width: 70%;
+    }
+}

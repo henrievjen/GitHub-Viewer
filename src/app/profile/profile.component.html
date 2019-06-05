@@ -1,3 +1,9 @@
-<p>Username: {{this.appService.user$.login}}</p>
-<p>ID: {{this.appService.user$.id}}</p>
-<p>Followers: {{this.appService.user$.followers}}</p>
+<div class="container text-center mt-3">
+    <img [src]="this.appService.user$.avatar_url" id="profile-img">
+    <h3 class="mt-5">Username: {{this.appService.user$.login}}</h3>
+    <h5 class="mt-2 mb-4">ID: {{this.appService.user$.id}}</h5>
+    <h5 class="mb-2">Followers: {{this.appService.user$.followers}}</h5>
+    <h5 class="mb-4">Following: {{this.appService.user$.following}}</h5>
+    <h5 class="mt-4 mb-4">Public Repos: {{this.appService.user$.public_repos}}</h5>
+    <h5>Date Joined: {{this.appService.user$.created_at | date:'MM/dd/yyyy'}}</h5>
+</div>
