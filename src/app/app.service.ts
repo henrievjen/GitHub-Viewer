@@ -11,6 +11,12 @@ export class AppService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  public setUser(user) {
+    this.getUsers(user).subscribe((user$: Profile) => {
+      this.user$ = user$;
+    });
+  }
+
   getUsers(user): Observable<Profile> {
     return this.http.get<Profile>("https://api.github.com/users/" + user);
   }

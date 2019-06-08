@@ -9,6 +9,10 @@ export class RepositoriesComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    document.getElementById('repositories-navbar').classList.add("active");
+    document.getElementById('home-navbar').classList.remove("active");
+    document.getElementById('profile-navbar').classList.remove("active");
+  }
 
 }
