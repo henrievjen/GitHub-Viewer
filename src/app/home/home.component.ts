@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile } from '../github.api.interface';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
 

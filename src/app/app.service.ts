@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Profile } from './github.api.interface';
 import { Router } from '@angular/router';
+import { Repos } from './github.api.repos.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,11 @@ export class AppService {
     return this.http.get<Profile>("https://api.github.com/users/" + user);
   }
 
+  getRepos(user): Observable<Repos> {
+    return this.http.get<Repos>("https://api.github.com/users/" + user + "/repos");
+  }
+
   public user$: Profile | Object = {};
+  public repos$: Repos | Object = {};
 
 }
