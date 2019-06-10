@@ -1,6 +1,6 @@
 <div class="container text-center mt-3">
     <img [src]="this.appService.user$.avatar_url" id="profile-img">
-    <h3 class="mt-5">Username: {{this.appService.user$.login}}</h3>
+    <h3 class="mt-5">Username: <a href="https://github.com/{{this.appService.user$.login}}" target="_blank">{{this.appService.user$.login}}</a></h3>
     <h5 class="mt-2 mb-4">ID: {{this.appService.user$.id}}</h5>
     <h5 class="mb-2">Followers: {{this.appService.user$.followers}}</h5>
     <h5 class="mb-4">Following: {{this.appService.user$.following}}</h5>
