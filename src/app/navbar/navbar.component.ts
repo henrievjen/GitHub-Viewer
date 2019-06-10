@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,8 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appService: AppService, private router: Router) { }
 
   ngOnInit() { }
+
+  public validation(): void {
+    if ((<HTMLInputElement> document.getElementById('navbarUsername')).value.trim().length > 0) {
+      this.appService.setUser((<HTMLInputElement> document.getElementById('navbarUsername')).value);
+      sessionStorage.setItem('username', (<HTMLInputElement> document.getElementById('navbarUsername')).value);
+      this.router.navigate(['profile']);
+    }
+  }
 
 }
