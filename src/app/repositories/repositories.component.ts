@@ -189,6 +189,9 @@ export class RepositoriesComponent implements OnInit {
       case "ASP":
         return "rgb(106, 64, 253)";
         break;
+      case "SQLPL":
+          return "rgb(204, 204, 204)";
+          break;
     }
   }
 

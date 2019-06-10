@@ -14,10 +14,12 @@ export class NavbarComponent implements OnInit {
   ngOnInit() { }
 
   public validation(): void {
-    if ((<HTMLInputElement> document.getElementById('navbarUsername')).value.trim().length > 0) {
-      this.appService.setUser((<HTMLInputElement> document.getElementById('navbarUsername')).value);
-      sessionStorage.setItem('username', (<HTMLInputElement> document.getElementById('navbarUsername')).value);
+    if ((<HTMLInputElement> document.getElementById('navbar-username')).value.trim().length > 0) {
+      this.appService.setUser((<HTMLInputElement> document.getElementById('navbar-username')).value);
+      sessionStorage.setItem('username', (<HTMLInputElement> document.getElementById('navbar-username')).value);
       this.router.navigate(['profile']);
+
+      (<HTMLInputElement> document.getElementById('navbar-username')).value = "";
     }
   }
 
