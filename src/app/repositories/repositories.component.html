@@ -1,19 +1,21 @@
 <div class="container mt-4">
-    <div class="row justify-content-around">
-        <div *ngFor="let repo of this.appService.repos$" class="col-sm-4 border border-secondary rounded mb-3">
-            <a href="https://github.com/{{this.appService.user$.login}}/{{repo.name}}" target="_blank">{{repo.name}}</a>
-            <br />
-            <h6 class="mb-5"><small>{{repo.description}}</small></h6>
-            <h6 id="bottom-text">
-                <small>
-                    <span *ngIf="repo.language">
-                        <span class="mr-1" id="language-pill" [style.background-color]="getLanguageColor(repo.language)"></span>
-                        <span class="mr-3">{{repo.language}}</span>
-                    </span>
-                    <i class="fa fa-star mr-1" aria-hidden="true"></i>
-                    <span>{{repo.stargazers_count}}</span>
-                </small>
-            </h6>
+    <div class="row">
+        <div *ngFor="let repo of this.appService.repos$" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
+            <div id="inner-repo-div" class="border border-secondary rounded">
+                <a href="https://github.com/{{this.appService.user$.login}}/{{repo.name}}" target="_blank">{{repo.name}}</a>
+                <br />
+                <h6 class="mb-5"><small>{{repo.description}}</small></h6>
+                <h6 id="bottom-text">
+                    <small>
+                        <span *ngIf="repo.language">
+                            <span class="mr-1" id="language-pill" [style.background-color]="getLanguageColor(repo.language)"></span>
+                            <span class="mr-3">{{repo.language}}</span>
+                        </span>
+                        <i class="fa fa-star mr-1" aria-hidden="true"></i>
+                        <span>{{repo.stargazers_count}}</span>
+                    </small>
+                </h6>
+            </div>
         </div>
     </div>
 </div>

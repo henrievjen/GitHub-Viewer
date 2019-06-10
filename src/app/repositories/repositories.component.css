@@ -1,3 +1,9 @@
+#inner-repo-div {
+    width: 105%;
+    height: 100%;
+    padding: 10px;
+}
+
 #bottom-text {
     position: absolute;
     bottom: 0;
