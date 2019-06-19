@@ -10,7 +10,13 @@ import { Repos } from './github.api.repos.interface';
 })
 export class AppService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  public user$: Profile | Object;
+  public repos$: Repos | Object;
+
+  constructor(private http: HttpClient, private router: Router) {
+    this.user$ = {};
+    this.repos$ = {};
+  }
 
   public setUser(user) {
     this.getUsers(user).subscribe((user$: Profile) => {
@@ -25,8 +31,5 @@ export class AppService {
   getRepos(user): Observable<Repos> {
     return this.http.get<Repos>("https://api.github.com/users/" + user + "/repos");
   }
-
-  public user$: Profile | Object = {};
-  public repos$: Repos | Object = {};
 
 }

@@ -7,18 +7,18 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active" id="home-navbar">
-        <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/home" (click)="collapseNavBar()">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item" id="profile-navbar">
-        <a class="nav-link" routerLink="/profile">Profile</a>
+        <a class="nav-link" routerLink="/profile" (click)="collapseNavBar()">Profile</a>
       </li>
       <li class="nav-item" id="repositories-navbar">
-        <a class="nav-link" routerLink="/repositories">Repositories</a>
+        <a class="nav-link" routerLink="/repositories" (click)="collapseNavBar()">Repositories</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="#" autocomplete="off">
       <input id="navbar-username" class="form-control mr-sm-2" type="search" placeholder="Search Users" aria-label="Search Users">
-      <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search" title="Search for User" (click)="validation()">
+      <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search" title="Search for User" (click)="validation(); collapseNavBar();">
     </form>
   </div>
 </nav>

@@ -18,8 +18,12 @@ export class NavbarComponent implements OnInit {
       this.appService.setUser((<HTMLInputElement> document.getElementById('navbar-username')).value);
       sessionStorage.setItem('username', (<HTMLInputElement> document.getElementById('navbar-username')).value);
       this.router.navigate(['profile']);
+    }
+  }
 
-      (<HTMLInputElement> document.getElementById('navbar-username')).value = "";
+  public collapseNavBar(): void {
+    if ((<HTMLButtonElement> document.getElementsByClassName('navbar-toggler')[0]).getAttribute('aria-expanded') === 'true') {
+      (<HTMLButtonElement> document.getElementsByClassName('navbar-toggler')[0]).click();
     }
   }
 

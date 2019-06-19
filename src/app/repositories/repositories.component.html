@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div *ngIf="this.appService.user$.login" class="container mt-4">
     <div class="row">
         <div *ngFor="let repo of this.appService.repos$" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
             <div id="inner-repo-div" class="border border-secondary rounded">
@@ -18,4 +18,8 @@
             </div>
         </div>
     </div>
+</div>
+
+<div *ngIf="!this.appService.user$.login" class="w-100 h-100 text-center" id="not-username-exists">
+    Search for a user to view repositories
 </div>

@@ -17,3 +17,8 @@
     top: 1px;
     width: 12px;
 }
+
+#not-username-exists {
+    padding-top: 15%;
+    font-size: 200%;
+}
