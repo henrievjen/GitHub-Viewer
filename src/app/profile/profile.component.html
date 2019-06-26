@@ -1,4 +1,4 @@
-<div *ngIf="this.appService.user$.login" class="container text-center mt-3">
+<div *ngIf="this.appService.user$.login" class="container text-center mt-3 mb-5">
     <img [src]="this.appService.user$.avatar_url" id="profile-img">
     <h3 class="mt-5">Username: <a href="https://github.com/{{this.appService.user$.login}}" target="_blank">{{this.appService.user$.login}}</a></h3>
     <h5 class="mt-2 mb-4">ID: {{this.appService.user$.id}}</h5>

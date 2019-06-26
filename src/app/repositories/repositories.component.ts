@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { Profile } from '../github.api.interface';
+import { Repos } from '../github.api.repos.interface';
 
 @Component({
   selector: 'app-repositories',
@@ -21,7 +22,7 @@ export class RepositoriesComponent implements OnInit {
         this.appService.user$ = user$;
       });
       
-      this.appService.getRepos(sessionStorage.getItem('username')).subscribe((repos$) => {
+      this.appService.getRepos(sessionStorage.getItem('username')).subscribe((repos$: Repos) => {
         this.appService.repos$ = repos$;
       });
     }
@@ -263,6 +264,167 @@ export class RepositoriesComponent implements OnInit {
       case "Opal":
         return "rgb(247, 237, 224)";
         break;
+      case "ColdFusion CFC":
+        return "rgb(237, 44, 214)";
+        break;
+      case "Oz":
+        return "rgb(250, 183, 56)";
+        break;
+      case "Mirah":
+        return "rgb(199, 169, 56)";
+        break;
+      case "Objective-J":
+        return "rgb(255, 12, 90)";
+        break;
+      case "FreeMarker":
+        return "rgb(0, 80, 178)";
+        break;
+      case "Component Pascal":
+        return "rgb(176, 206, 78)";
+        break;
+      case "Arc":
+        return "rgb(170, 42, 254)";
+        break;
+      case "Brainfuck":
+        return "rgb(47, 37, 48)";
+        break;
+      case "Nit":
+        return "rgb(0, 153, 23)";
+        break;
+      case "APL":
+        return "rgb(90, 129, 100)";
+        break;
+      case "Cirru":
+        return "rgb(204, 204, 255)";
+        break;
+      case "SQF":
+        return "rgb(63, 63, 63)";
+        break;
+      case "Glyph":
+        return "rgb(228, 204, 152)";
+        break;
+      case "MAXScript":
+        return "rgb(0, 166, 166)";
+        break;
+      case "ColdFusion":
+        return "rgb(237, 44, 214)";
+        break;
+      case "Lua":
+        return "rgb(0, 0, 128)";
+        break;
+      case "Verilog":
+        return "rgb(178, 183, 248)";
+        break;
+      case "Factor":
+        return "rgb(99, 103, 70)";
+        break;
+      case "Pure Data":
+        return "rgb(145, 222, 121)";
+        break;
+      case "Forth":
+        return "rgb(52, 23, 8)";
+        break;
+      case "Hy":
+        return "rgb(119, 144, 178)";
+        break;
+      case "Volt":
+        return "rgb(31, 31, 31)";
+        break;
+      case "LSL":
+        return "rgb(61, 153, 112)";
+        break;
+      case "eC":
+        return "rgb(145, 57, 96)";
+        break;
+      case "Lex":
+        return "rgb(219, 202, 0)";
+        break;
+      case "API Blueprint":
+        return "rgb(42, 204, 168)";
+        break;
+      case "AutoHotkey":
+        return "rgb(101, 148, 185)";
+        break;
+      case "Isabelle":
+        return "rgb(254, 254, 0)";
+        break;
+      case "Metal":
+        return "rgb(143, 20, 233)";
+        break;
+      case "Clarion":
+        return "rgb(219, 144, 30)";
+        break;
+      case "JSONiq":
+        return "rgb(64, 212, 126)";
+        break;
+      case "Boo":
+        return "rgb(212, 190, 193)";
+        break;
+      case "AutoIt":
+        return "rgb(28, 53, 82)";
+        break;
+      case "Prolog":
+        return "rgb(116, 40, 60)";
+        break;
+      case "SourcePawn":
+        return "rgb(92, 118, 17)";
+        break;
+      case "AMPL":
+        return "rgb(230, 239, 187)";
+        break;
+      case "FORTRAN":
+        return "rgb(77, 65, 177)";
+        break;
+      case "ANTLR":
+        return "rgb(157, 195, 255)";
+        break;
+      case "Harbour":
+        return "rgb(14, 96, 227)";
+        break;
+      case "Tcl":
+        return "rgb(228, 204, 152)";
+        break;
+      case "BlitzMax":
+        return "rgb(205, 100, 0)";
+        break;
+      case "PigLatin":
+        return "rgb(252, 215, 222)";
+        break;
+      case "Lasso":
+        return "rgb(153, 153, 153)";
+        break;
+      case "ECL":
+        return "rgb(138, 18, 103)";
+        break;
+      case "VHDL":
+        return "rgb(173, 178, 203)";
+        break;
+      case "Elm":
+        return "rgb(96, 181, 204)";
+        break;
+      case "Propeller Spin":
+        return "rgb(127, 162, 167)";
+        break;
+      case "X10":
+        return "rgb(75, 107, 239)";
+        break;
+      case "IDL":
+        return "rgb(163, 82, 47)";
+        break;
+      case "ATS":
+        return "rgb(26, 198, 32)";
+        break;
+      case "Ada":
+        return "rgb(2, 248, 140)";
+        break;
+      case "Unity3D Asset":
+        return "rgb(171, 105, 161)";
+        break;
+      case "Nu":
+        return "rgb(201, 223, 64)";
+        break;
+      default:
+        return "rgb(204, 204, 204)";
     }
   }
 
