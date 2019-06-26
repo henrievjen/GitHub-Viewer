@@ -143,6 +143,9 @@ export class RepositoriesComponent implements OnInit {
       case "F#":
         return "rgb(184, 69, 252)";
         break;
+      case "Perl":
+        return "rgb(2, 152, 195)";
+        break;
       case "Perl 6":
         return "rgb(0, 0, 251)";
         break;
@@ -208,6 +211,57 @@ export class RepositoriesComponent implements OnInit {
         break;
       case "OpenEdge ABL":
         return "rgb(204, 204, 204)";
+        break;
+      case "Mercury":
+        return "rgb(255, 43, 43)";
+        break;
+      case "PureBasic":
+        return "rgb(90, 105, 134)";
+        break;
+      case "Self":
+        return "rgb(5, 121, 170)";
+        break;
+      case "edn":
+        return "rgb(219, 88, 85)";
+        break;
+      case "Rebol":
+        return "rgb(53, 138, 91)";
+        break;
+      case "Dart":
+        return "rgb(0, 180, 171)";
+        break;
+      case "AspectJ":
+        return "rgb(169, 87, 176)";
+        break;
+      case "Web Ontology Language":
+        return "rgb(156, 201, 221)";
+        break;
+      case "xBase":
+        return "rgb(64, 58, 64)";
+        break;
+      case "Eiffel":
+        return "rgb(148, 109, 87)";
+        break;
+      case "Nix":
+        return "rgb(126, 126, 255)";
+        break;
+      case "RAML":
+        return "rgb(119, 217, 251)";
+        break;
+      case "MTML":
+        return "rgb(183, 225, 244)";
+        break;
+      case "SAS":
+        return "rgb(179, 73, 54)";
+        break;
+      case "Agda":
+        return "rgb(49, 86, 101)";
+        break;
+      case "wisp":
+        return "rgb(117, 130, 209)";
+        break;
+      case "Opal":
+        return "rgb(247, 237, 224)";
         break;
     }
   }
