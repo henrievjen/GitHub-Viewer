@@ -20,6 +20,8 @@ export class ProfileComponent implements OnInit {
       this.appService.getUsers(sessionStorage.getItem('username')).subscribe((user$: Profile) => {
         this.appService.user$ = user$;
       });
+
+      (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Viewing: " + sessionStorage.getItem('username');
     }
   }
 

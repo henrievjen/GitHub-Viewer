@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
+import { Profile } from '../github.api.interface';
 
 @Component({
   selector: 'app-repositories',
@@ -16,6 +17,10 @@ export class RepositoriesComponent implements OnInit {
     document.getElementById('profile-navbar').classList.remove("active");
 
     if (sessionStorage.getItem('username') !== null) {
+      this.appService.getUsers(sessionStorage.getItem('username')).subscribe((user$: Profile) => {
+        this.appService.user$ = user$;
+      });
+      
       this.appService.getRepos(sessionStorage.getItem('username')).subscribe((repos$) => {
         this.appService.repos$ = repos$;
       });
@@ -190,8 +195,20 @@ export class RepositoriesComponent implements OnInit {
         return "rgb(106, 64, 253)";
         break;
       case "SQLPL":
-          return "rgb(204, 204, 204)";
-          break;
+        return "rgb(204, 204, 204)";
+        break;
+      case "CMake":
+        return "rgb(204, 204, 204)";
+        break;
+      case "Matlab":
+        return "rgb(225, 103, 55)";
+        break;
+      case "Cuda":
+        return "rgb(58, 78, 58)";
+        break;
+      case "OpenEdge ABL":
+        return "rgb(204, 204, 204)";
+        break;
     }
   }
 

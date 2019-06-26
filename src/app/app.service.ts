@@ -24,11 +24,11 @@ export class AppService {
     });
   }
 
-  getUsers(user): Observable<Profile> {
+  public getUsers(user): Observable<Profile> {
     return this.http.get<Profile>("https://api.github.com/users/" + user);
   }
 
-  getRepos(user): Observable<Repos> {
+  public getRepos(user): Observable<Repos> {
     return this.http.get<Repos>("https://api.github.com/users/" + user + "/repos");
   }
 

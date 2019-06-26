@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
+import { Profile } from '../github.api.interface';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,14 @@ export class HomeComponent implements OnInit {
     document.getElementById('home-navbar').classList.add("active");
     document.getElementById('profile-navbar').classList.remove("active");
     document.getElementById('repositories-navbar').classList.remove("active");
+
+    (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Search Users";
+
+    if (sessionStorage.getItem('username') !== null) {
+      this.appService.getUsers(sessionStorage.getItem('username')).subscribe((user$: Profile) => {
+        this.appService.user$ = user$;
+      });
+    }
   }
 
   public validation(): void {
