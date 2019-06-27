@@ -423,6 +423,48 @@ export class RepositoriesComponent implements OnInit {
       case "Nu":
         return "rgb(201, 223, 64)";
         break;
+      case "LFE":
+        return "rgb(0, 66, 0)";
+        break;
+      case "SuperCollider":
+        return "rgb(70, 57, 11)";
+        break;
+      case "Oxygene":
+        return "rgb(205, 208, 227)";
+        break;
+      case "Gnuplot":
+        return "rgb(240, 169, 240)";
+        break;
+      case "JFlex":
+        return "rgb(219, 202, 0)";
+        break;
+      case "NetLinx":
+        return "rgb(10, 160, 255)";
+        break;
+      case "Turing":
+        return "rgb(69, 247, 21)";
+        break;
+      case "Vala":
+        return "rgb(251, 229, 205)";
+        break;
+      case "Processing":
+        return "rgb(0, 150, 216)";
+        break;
+      case "Arduino":
+        return "rgb(189, 121, 209)";
+        break;
+      case "FLUX":
+        return "rgb(136, 204, 255)";
+        break;
+      case "NetLogo":
+        return "rgb(255, 99, 117)";
+        break;
+      case "Emacs Lisp":
+        return "rgb(192, 101, 219)";
+        break;
+      case "Stan":
+        return "rgb(178, 1, 29)";
+        break;
       default:
         return "rgb(204, 204, 204)";
     }
