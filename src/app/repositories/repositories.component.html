@@ -1,6 +1,6 @@
 <div *ngIf="this.appService.user$.login" class="container mt-4 mb-5">
-    <div class="row">
-        <div *ngFor="let repo of this.appService.repos$" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
+    <div class="row container">
+        <div *ngFor="let repo of this.appService.repos$" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
             <div id="inner-repo-div" class="border border-secondary rounded">
                 <a href="https://github.com/{{this.appService.user$.login}}/{{repo.name}}" target="_blank">{{repo.name}}</a>
                 <br />
