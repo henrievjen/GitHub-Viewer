@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
     if ((<HTMLInputElement> document.getElementById('username')).value.trim().length > 0) {
       this.appService.setUser((<HTMLInputElement> document.getElementById('username')).value);
       sessionStorage.setItem('username', (<HTMLInputElement> document.getElementById('username')).value);
-      this.router.navigate(['profile']);
     }
   }
 }

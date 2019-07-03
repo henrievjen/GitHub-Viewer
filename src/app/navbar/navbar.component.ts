@@ -19,7 +19,6 @@ export class NavbarComponent implements OnInit {
     if ((<HTMLInputElement> document.getElementById('navbar-username')).value.trim().length > 0) {
       this.appService.setUser((<HTMLInputElement> document.getElementById('navbar-username')).value);
       sessionStorage.setItem('username', (<HTMLInputElement> document.getElementById('navbar-username')).value);
-      this.router.navigate(['profile']);
       this.navbarViewingPlaceholder();
     }
   }

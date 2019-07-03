@@ -1,5 +1,10 @@
 <div class="container text-center mt-4">
 
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="this.appService.errorAlert">
+        <button type="button" class="close" data-dismiss="alert" (click)="this.appService.errorAlertClose()">&times;</button>
+        <strong>Error!</strong> &nbsp; We could not find that user.
+    </div>
+
     <h1 id="head">
         Welcome to the GitHub Viewer<br />
         <small>Type in a valid GitHub username to get started!</small>
