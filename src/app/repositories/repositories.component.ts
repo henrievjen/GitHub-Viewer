@@ -26,6 +26,13 @@ export class RepositoriesComponent implements OnInit {
         this.appService.repos$ = repos$;
       });
     }
+
+    if(this.appService.errorLoad) {
+      (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Search Users";
+    }
+    else {
+      (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Viewing: " + sessionStorage.getItem('username');
+    }
   }
 
   getLanguageColor(language: string): string {

@@ -24,13 +24,11 @@ export class AppService {
   public setUser(user) {
     this.getUsers(user).subscribe((user$: Profile) => {
       this.errorLoad = false;
-      console.log("from setUser: " + this.errorLoad);
       this.user$ = user$;
     },
     // Error Handling
     (err) => {
       this.errorLoad = true;
-      console.log("from setUser Error: " + this.errorLoad);
       this.errorAlert = true;
       this.user$ = {};
       this.repos$ = [];
@@ -40,7 +38,7 @@ export class AppService {
         this.errorAlertClose();
       }, 5000);
     },
-    // Navigate based on if error
+    // Navigate based on if there is an error
     () => {
       if (!this.errorLoad) {
         this.router.navigate(['profile']);

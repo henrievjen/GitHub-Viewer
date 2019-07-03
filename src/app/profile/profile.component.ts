@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(private appService: AppService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     document.getElementById('profile-navbar').classList.add("active");
     document.getElementById('home-navbar').classList.remove("active");
     document.getElementById('repositories-navbar').classList.remove("active");
@@ -21,7 +21,12 @@ export class ProfileComponent implements OnInit {
         this.appService.user$ = user$;
       });
 
-      (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Viewing: " + sessionStorage.getItem('username');
+      if(this.appService.errorLoad) {
+        (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Search Users";
+      }
+      else {
+        (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Viewing: " + sessionStorage.getItem('username');
+      }
     }
   }
 
