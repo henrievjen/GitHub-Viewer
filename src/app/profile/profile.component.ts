@@ -28,6 +28,8 @@ export class ProfileComponent implements OnInit {
         (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Viewing: " + sessionStorage.getItem('username');
       }
     }
+
+    this.appService.errorAlertClose();
   }
 
 }

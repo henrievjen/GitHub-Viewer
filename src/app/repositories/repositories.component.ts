@@ -33,6 +33,8 @@ export class RepositoriesComponent implements OnInit {
     else {
       (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Viewing: " + sessionStorage.getItem('username');
     }
+
+    this.appService.errorAlertClose()
   }
 
   getLanguageColor(language: string): string {

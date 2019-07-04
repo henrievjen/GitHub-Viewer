@@ -20,6 +20,10 @@
     </div>
 </div>
 
+<div class="w-100 h-100 text-center" id="not-username-exists" *ngIf="this.appService.user$.public_repos == '0'">
+    {{this.appService.user$.login}} has no public repos.
+</div>
+
 <div *ngIf="!this.appService.user$.login" class="w-100 h-100 text-center" id="not-username-exists">
     Search for a user to view repositories
 </div>
