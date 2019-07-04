@@ -37,6 +37,10 @@ export class AppService {
       this.errorClose = setTimeout(() => {
         this.errorAlertClose();
       }, 5000);
+
+      if(this.errorLoad) {
+        this.router.navigate(['home']);
+      }
     },
     // Navigate based on if there is an error
     () => {
