@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { Profile } from '../github.api.interface';
 import { Repos } from '../github.api.repos.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-repositories',
@@ -10,7 +11,7 @@ import { Repos } from '../github.api.repos.interface';
 })
 export class RepositoriesComponent implements OnInit {
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private router: Router) { }
 
   ngOnInit() {
     document.getElementById('repositories-navbar').classList.add("active");
@@ -20,9 +21,10 @@ export class RepositoriesComponent implements OnInit {
     if (sessionStorage.getItem('username') !== null) {
       this.appService.getUsers(sessionStorage.getItem('username')).subscribe((user$: Profile) => {
         this.appService.user$ = user$;
+        this.appService.repoPages = Math.ceil(user$.public_repos / 100);
       });
       
-      this.appService.getRepos(sessionStorage.getItem('username')).subscribe((repos$: Repos) => {
+      this.appService.getRepos(sessionStorage.getItem('username'), this.appService.pageNumber).subscribe((repos$: Repos) => {
         this.appService.repos$ = repos$;
       });
     }
@@ -35,6 +37,12 @@ export class RepositoriesComponent implements OnInit {
     }
 
     this.appService.errorAlertClose()
+  }
+
+  public setPageNumber(num): void {
+    console.log(num);
+    this.appService.pageNumber = num;
+    this.ngOnInit();
   }
 
   getLanguageColor(language: string): string {

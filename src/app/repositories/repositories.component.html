@@ -18,6 +18,9 @@
             </div>
         </div>
     </div>
+    <div class="text-center w-100">
+        <button class="btn btn-primary ml-1 mr-1 mt-5 mb-4" *ngFor="let dummy of ' '.repeat(this.appService.repoPages).split(''), let x = index" (click)="setPageNumber(x + 1)">{{x + 1}}</button>
+    </div>
 </div>
 
 <div class="w-100 h-100 text-center" id="not-username-exists" *ngIf="this.appService.user$.public_repos == '0'">

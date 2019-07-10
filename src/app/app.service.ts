@@ -15,10 +15,14 @@ export class AppService {
   public errorAlert: boolean = false;
   public errorLoad: boolean = true;
   public errorClose;
+  public pageNumber: number = 1;
+  public repoPages: number = 1;
 
   constructor(private http: HttpClient, private router: Router) {
     this.user$ = {};
     this.repos$ = [];
+    this.pageNumber = 1;
+    this.repoPages = 1;
   }
 
   public setUser(user) {
@@ -54,8 +58,8 @@ export class AppService {
     return this.http.get<Profile>("https://api.github.com/users/" + user);
   }
 
-  public getRepos(user): Observable<Repos> {
-    return this.http.get<Repos>("https://api.github.com/users/" + user + "/repos");
+  public getRepos(user, page: number): Observable<Repos> {
+    return this.http.get<Repos>("https://api.github.com/users/" + user + "/repos?page=" + page + "&per_page=100");
   }
 
   public errorAlertClose(): void {
