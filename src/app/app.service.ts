@@ -67,4 +67,11 @@ export class AppService {
     clearTimeout(this.errorClose);
   }
 
+  public navbarViewingPlaceholder(): void {
+    if(sessionStorage.getItem('username') && sessionStorage.getItem('username').length > 0) {
+      (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Viewing: " + sessionStorage.getItem('username');
+      (<HTMLInputElement> document.getElementById('navbar-username')).value = "";
+    }
+  }
+
 }

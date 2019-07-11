@@ -39,5 +39,4 @@ export class NavbarComponent implements OnInit {
       (<HTMLInputElement> document.getElementById('navbar-username')).value = "";
     }
   }
-
 }

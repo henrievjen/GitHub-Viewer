@@ -32,11 +32,15 @@ export class RepositoriesComponent implements OnInit {
     if(this.appService.errorLoad) {
       (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Search Users";
     }
-    else {
+    
+    this.appService.navbarViewingPlaceholder();
+
+    if(sessionStorage.getItem('username') && sessionStorage.getItem('username').length > 0) {
       (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Viewing: " + sessionStorage.getItem('username');
+      (<HTMLInputElement> document.getElementById('navbar-username')).value = "";
     }
 
-    this.appService.errorAlertClose()
+    this.appService.errorAlertClose();
   }
 
   public setPageNumber(num): void {

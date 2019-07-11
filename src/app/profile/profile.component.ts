@@ -24,9 +24,8 @@ export class ProfileComponent implements OnInit {
       if(this.appService.errorLoad) {
         (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Search Users";
       }
-      else {
-        (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Viewing: " + sessionStorage.getItem('username');
-      }
+      
+      this.appService.navbarViewingPlaceholder();
     }
 
     this.appService.errorAlertClose();
