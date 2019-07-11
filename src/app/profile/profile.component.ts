@@ -12,19 +12,19 @@ export class ProfileComponent implements OnInit {
   constructor(private appService: AppService) { }
 
   ngOnInit(): void {
-    document.getElementById('profile-navbar').classList.add("active");
-    document.getElementById('home-navbar').classList.remove("active");
-    document.getElementById('repositories-navbar').classList.remove("active");
+    document.getElementById('profile-navbar').classList.add('active');
+    document.getElementById('home-navbar').classList.remove('active');
+    document.getElementById('repositories-navbar').classList.remove('active');
 
     if (sessionStorage.getItem('username') !== null) {
       this.appService.getUsers(sessionStorage.getItem('username')).subscribe((user$: Profile) => {
         this.appService.user$ = user$;
       });
 
-      if(this.appService.errorLoad) {
-        (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Search Users";
+      if (this.appService.errorLoad) {
+        (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = 'Search Users';
       }
-      
+
       this.appService.navbarViewingPlaceholder();
     }
 
