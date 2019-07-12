@@ -1,4 +1,7 @@
 <div *ngIf="this.appService.user$.login" class="container mt-4 mb-5">
+        <div class="text-center w-100 repoPageBtnGroup" data-toggle="buttons">
+            <button class="btn btn-outline-primary ml-1 mr-1 mt-1 mb-4" *ngFor="let dummy of ' '.repeat(this.appService.repoPages).split(''), let x = index" (click)="setPageNumber(x + 1); setBtnState(x + 1)">{{x + 1}}</button>
+        </div>
     <div class="row container">
         <div *ngFor="let repo of this.appService.repos$" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3" style="min-width: 200px">
             <div id="inner-repo-div" class="border border-secondary rounded">
@@ -18,8 +21,8 @@
             </div>
         </div>
     </div>
-    <div class="text-center w-100">
-        <button class="btn btn-primary ml-1 mr-1 mt-5 mb-4" *ngFor="let dummy of ' '.repeat(this.appService.repoPages).split(''), let x = index" (click)="setPageNumber(x + 1)">{{x + 1}}</button>
+    <div class="text-center w-100 repoPageBtnGroup" data-toggle="buttons">
+        <button class="btn btn-outline-primary ml-1 mr-1 mt-1 mb-4" *ngFor="let dummy of ' '.repeat(this.appService.repoPages).split(''), let x = index" (click)="setPageNumber(x + 1); setBtnState(x + 1)">{{x + 1}}</button>
     </div>
 </div>
 

@@ -26,6 +26,8 @@ export class RepositoriesComponent implements OnInit {
       
       this.appService.getRepos(sessionStorage.getItem('username'), this.appService.pageNumber).subscribe((repos$: Repos) => {
         this.appService.repos$ = repos$;
+        document.getElementsByClassName('repoPageBtnGroup')[0].children[this.appService.pageNumber - 1].classList.add('active');
+        document.getElementsByClassName('repoPageBtnGroup')[1].children[this.appService.pageNumber - 1].classList.add('active');
       });
     }
 
@@ -43,10 +45,22 @@ export class RepositoriesComponent implements OnInit {
     this.appService.errorAlertClose();
   }
 
-  public setPageNumber(num): void {
-    console.log(num);
+  public setPageNumber(num: number): void {
     this.appService.pageNumber = num;
     this.ngOnInit();
+  }
+
+  public setBtnState(num): void {
+    let children1 = document.getElementsByClassName('repoPageBtnGroup')[0].children;
+    let children2 = document.getElementsByClassName('repoPageBtnGroup')[1].children;
+    
+    for(let i = 0; i < children1.length; i++) {
+      (<HTMLElement> children1[i]).classList.remove('active');
+    }
+
+    for(let i = 0; i < children2.length; i++) {
+      (<HTMLElement> children2[i]).classList.remove('active');
+    }
   }
 
   getLanguageColor(language: string): string {
