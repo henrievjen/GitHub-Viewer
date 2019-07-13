@@ -1,21 +1,4 @@
-#username {
-    height: 40px;
-    width: 400px;
-    margin-right: 1.5px;
-    padding-left: 10px;
-}
-
-#submit {
-    height: 40px;
-    vertical-align: 4%;
-    margin-left: 1.5px;
-}
-
 @media only screen and (max-width: 540px) {
-    #username {
-        width: 60vw;
-    }
-
     #head {
         font-size: 150%;
     }
@@ -23,13 +6,13 @@
 
 @media only screen and (max-width: 265px) {
     #username {
-        width: 90vw;
+        width: 80vw;
         margin-bottom: 3px;
         margin-right: 0px;
     }
 
-    #submit {
-        width: 90vw;
+    #inputBtn {
+        width: 80vw;
         margin-left: 0px;
     }
 

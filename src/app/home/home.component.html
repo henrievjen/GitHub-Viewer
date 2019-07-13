@@ -1,18 +1,21 @@
 <div class="container text-center mt-4">
 
+    <!-- Could Not Find User Error Message -->
     <div class="alert alert-danger alert-dismissible fade show" *ngIf="this.appService.errorAlert">
         <button type="button" class="close" data-dismiss="alert" (click)="this.appService.errorAlertClose()">&times;</button>
         <strong>Error!</strong> &nbsp; We could not find that user.
     </div>
 
+    <!-- Welcome Message -->
     <h1 id="head">
         Welcome to the GitHub Viewer<br />
         <small>Type in a valid GitHub username to get started!</small>
     </h1>
 
+    <!-- Home Search for User -->
     <form action="#" autocomplete="off">
         <input class="mt-5" id="username" type="text" placeholder="Username" name="username" />
-        <input type="submit" class="btn btn-primary" id="submit" value="Search" title="Search for User" (click)="this.validation()">
+        <input type="submit" class="btn btn-primary" id="inputBtn" value="Search" title="Search for User" (click)="this.validation()">
     </form>
     
 </div>
