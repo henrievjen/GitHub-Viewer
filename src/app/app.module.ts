@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RepositoriesComponent } from './repositories/repositories.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RepositoriesComponent } from './repositories/repositories.component';
     FooterComponent,
     HomeComponent,
     ProfileComponent,
-    RepositoriesComponent
+    RepositoriesComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

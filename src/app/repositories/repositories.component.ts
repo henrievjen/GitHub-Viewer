@@ -22,24 +22,26 @@ export class RepositoriesComponent implements OnInit {
       this.appService.getUsers(sessionStorage.getItem('username')).subscribe((user$: Profile) => {
         this.appService.user$ = user$;
         this.appService.repoPages = Math.ceil(user$.public_repos / 100);
+        this.appService.navbarViewingPlaceholder();
       });
       
       this.appService.getRepos(sessionStorage.getItem('username'), this.appService.pageNumber).subscribe((repos$: Repos) => {
         this.appService.repos$ = repos$;
-        document.getElementsByClassName('repoPageBtnGroup')[0].children[this.appService.pageNumber - 1].classList.add('active');
-        document.getElementsByClassName('repoPageBtnGroup')[1].children[this.appService.pageNumber - 1].classList.add('active');
+        if (document.getElementsByClassName('repoPageBtnGroup')[0].children[this.appService.pageNumber - 1]) {
+          document.getElementsByClassName('repoPageBtnGroup')[0].children[this.appService.pageNumber - 1].classList.add('active');
+        }
+        
+        if (document.getElementsByClassName('repoPageBtnGroup')[1].children[this.appService.pageNumber - 1]) {
+          document.getElementsByClassName('repoPageBtnGroup')[1].children[this.appService.pageNumber - 1].classList.add('active');
+        }
       });
     }
 
-    if(this.appService.errorLoad) {
+    if(this.appService.errorLoad && sessionStorage.getItem('username') !== null) {
       (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Search Users";
     }
-    
-    this.appService.navbarViewingPlaceholder();
-
-    if(sessionStorage.getItem('username') && sessionStorage.getItem('username').length > 0) {
-      (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Viewing: " + sessionStorage.getItem('username');
-      (<HTMLInputElement> document.getElementById('navbar-username')).value = "";
+    else {
+      this.appService.navbarViewingPlaceholder();
     }
 
     this.appService.errorAlertClose();

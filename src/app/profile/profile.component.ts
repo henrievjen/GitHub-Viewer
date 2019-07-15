@@ -19,13 +19,15 @@ export class ProfileComponent implements OnInit {
     if (sessionStorage.getItem('username') !== null) {
       this.appService.getUsers(sessionStorage.getItem('username')).subscribe((user$: Profile) => {
         this.appService.user$ = user$;
+        this.appService.navbarViewingPlaceholder();
       });
 
       if (this.appService.errorLoad) {
         (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = 'Search Users';
       }
-
-      this.appService.navbarViewingPlaceholder();
+      else {
+        this.appService.navbarViewingPlaceholder();
+      }
     }
 
     this.appService.errorAlertClose();

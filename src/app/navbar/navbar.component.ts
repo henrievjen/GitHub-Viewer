@@ -20,6 +20,7 @@ export class NavbarComponent implements OnInit {
       this.appService.setUser((<HTMLInputElement> document.getElementById('navbar-username')).value);
       sessionStorage.setItem('username', (<HTMLInputElement> document.getElementById('navbar-username')).value);
       (<HTMLInputElement> document.getElementById('navbar-username')).value = "";
+      this.appService.navbarViewingPlaceholder();
     }
   }
 
