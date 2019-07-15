@@ -5,17 +5,17 @@
         <button class="btn btn-outline-primary ml-1 mr-1 mt-1 mb-4" *ngFor="let dummy of ' '.repeat(this.appService.repoPages).split(''), let x = index" (click)="setPageNumber(x + 1); setBtnState(x + 1)">{{x + 1}}</button>
     </div>
 
-    <!-- Search and Filter -->
+    <!-- Search and Sort -->
     <div class="text-center w-100">
         <input type="text" class="mt-3 mb-5 mr-1" id="username" placeholder="Search for a Repository" autocomplete="off" />
         <div class="dropdown d-inline">
             <button type="button" class="btn btn-primary dropdown-toggle" id="inputBtn" data-toggle="dropdown">
-                Filter
+                Sort
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Link 1</a>
-                <a class="dropdown-item" href="#">Link 2</a>
-                <a class="dropdown-item" href="#">Link 3</a>
+                <a class="dropdown-item" (click)="setAlphabetShade()" style="background-color: rgb(200, 200, 200)"><i class="fa fa-font" aria-hidden="true" style="margin-right: 6px"></i>Alphabetical</a>
+                <a class="dropdown-item" (click)="setStarShade()"><i class="fa fa-star mr-1" style="margin-left: -2px" aria-hidden="true"></i>Stars</a>
+                <a class="dropdown-item" (click)="setLanguageShade()"><span id="language-pill" [style.background-color]="'red'" style="margin-right: 8px; margin-left: 1px"></span>Language</a>
             </div>
         </div>
     </div>

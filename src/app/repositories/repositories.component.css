@@ -30,3 +30,21 @@
     padding-top: 15%;
     font-size: 200%;
 }
+
+.dropdown-item:hover {
+    cursor: pointer;
+    background-color: rgb(230, 230, 230);
+}
+
+.dropdown-item:active {
+    background-color: rgb(210, 210, 210);
+}
+
+.dropdown-item {
+    user-select: none;
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}

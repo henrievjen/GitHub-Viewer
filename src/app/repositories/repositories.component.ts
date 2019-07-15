@@ -65,6 +65,24 @@ export class RepositoriesComponent implements OnInit {
     }
   }
 
+  public setAlphabetShade(): void {
+    (<HTMLElement> document.getElementsByClassName('dropdown-item')[0]).style.backgroundColor = 'rgb(200, 200, 200)';
+    (<HTMLElement> document.getElementsByClassName('dropdown-item')[1]).style.backgroundColor = 'rgb(256, 256, 256)';
+    (<HTMLElement> document.getElementsByClassName('dropdown-item')[2]).style.backgroundColor = 'rgb(256, 256, 256)';
+  }
+
+  public setStarShade(): void {
+    (<HTMLElement> document.getElementsByClassName('dropdown-item')[1]).style.backgroundColor = 'rgb(200, 200, 200)';
+    (<HTMLElement> document.getElementsByClassName('dropdown-item')[0]).style.backgroundColor = 'rgb(256, 256, 256)';
+    (<HTMLElement> document.getElementsByClassName('dropdown-item')[2]).style.backgroundColor = 'rgb(256, 256, 256)';
+  }
+
+  public setLanguageShade(): void {
+    (<HTMLElement> document.getElementsByClassName('dropdown-item')[2]).style.backgroundColor = 'rgb(200, 200, 200)';
+    (<HTMLElement> document.getElementsByClassName('dropdown-item')[0]).style.backgroundColor = 'rgb(256, 256, 256)';
+    (<HTMLElement> document.getElementsByClassName('dropdown-item')[1]).style.backgroundColor = 'rgb(256, 256, 256)';
+  }
+
   getLanguageColor(language: string): string {
     switch(language) {
       case "HTML":
