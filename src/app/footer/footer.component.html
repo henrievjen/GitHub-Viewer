@@ -4,5 +4,28 @@
   <a href="https://twitter.com/github?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" class="fab fa-twitter-square" title="Find GitHub on Twitter"></a>
   <a href="https://www.instagram.com/github/?hl=en" target="_blank" class="fab fa-instagram" title="Find GitHub on Instagram"></a>
   <a href="https://www.youtube.com/github" target="_blank" class="fab fa-youtube" title="Find GitHub on YouTube"></a>
-  <i class="fa fa-question-circle" title="Learn More" aria-hidden="true"></i>
+  
+  <!-- Click Triggers Modal -->
+  <i class="fa fa-question-circle" title="Learn More" aria-hidden="true" data-toggle="modal" data-target="#infoModal"></i>
 </footer>
+
+<!-- Modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="infoModalLabel"><i class="fab fa-github" style="margin-top: 12px"></i>GitHub Viewer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>This application serves as an easier GUI (Graphical User Interface) for <a href="https://github.com/" target="_blank">GitHub</a> users. This GUI is intended for beginners, who have little to no knowledge of <a href="https://git-scm.com/" target="_blank">Git</a>, GitHub, or the programming world as a whole.</p>
+        <p>Search for a GitHub user either on the home screen or in the top right corner of the screen on the Navigation Menu. View information about a particular user on the ‘Profile’ page and view his or her <a href="https://en.wikipedia.org/wiki/Repository_(version_control)" target="_blank">Repositories</a> on the ‘Repositories’ page. Navigate to these pages using the tabs on the Navigation Menu.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
