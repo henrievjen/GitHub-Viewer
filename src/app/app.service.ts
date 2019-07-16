@@ -10,13 +10,13 @@ import { Repos } from './github.api.repos.interface';
 })
 export class AppService {
 
-  public user$: Profile | Object;
+  public user$: Profile | object;
   public repos$: Repos | [];
-  public errorAlert: boolean = false;
-  public errorLoad: boolean = true;
+  public errorAlert = false;
+  public errorLoad = true;
   public errorClose;
-  public pageNumber: number = 1;
-  public repoPages: number = 1;
+  public pageNumber = 1;
+  public repoPages = 1;
 
   constructor(private http: HttpClient, private router: Router) {
     this.user$ = {};
@@ -42,7 +42,7 @@ export class AppService {
         this.errorAlertClose();
       }, 5000);
 
-      if(this.errorLoad) {
+      if (this.errorLoad) {
         this.router.navigate(['home']);
       }
     },
@@ -55,11 +55,11 @@ export class AppService {
   }
 
   public getUsers(user): Observable<Profile> {
-    return this.http.get<Profile>("https://api.github.com/users/" + user);
+    return this.http.get<Profile>('https://api.github.com/users/' + user);
   }
 
   public getRepos(user, page: number): Observable<Repos> {
-    return this.http.get<Repos>("https://api.github.com/users/" + user + "/repos?page=" + page + "&per_page=100");
+    return this.http.get<Repos>('https://api.github.com/users/' + user + '/repos?page=' + page + '&per_page=100');
   }
 
   public errorAlertClose(): void {
@@ -68,9 +68,9 @@ export class AppService {
   }
 
   public navbarViewingPlaceholder(): void {
-    if(sessionStorage.getItem('username') && sessionStorage.getItem('username').length > 0) {
-      (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Viewing: " + sessionStorage.getItem('username');
-      (<HTMLInputElement> document.getElementById('navbar-username')).value = "";
+    if (sessionStorage.getItem('username') && sessionStorage.getItem('username').length > 0) {
+      (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = 'Viewing: ' + sessionStorage.getItem('username');
+      (<HTMLInputElement> document.getElementById('navbar-username')).value = '';
     }
   }
 
