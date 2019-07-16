@@ -16,11 +16,12 @@
                 <a class="dropdown-item" (click)="setAlphabetShade()" style="background-color: rgb(200, 200, 200)"><i class="fa fa-font" aria-hidden="true" style="margin-right: 6px"></i>Alphabetical</a>
                 <a class="dropdown-item" (click)="setStarShade()"><i class="fa fa-star mr-1" style="margin-left: -2px" aria-hidden="true"></i>Stars</a>
                 <a class="dropdown-item" (click)="setLanguageShade()"><span id="language-pill" [style.background-color]="'red'" style="margin-right: 8px; margin-left: 1px"></span>Language</a>
+                <a class="dropdown-item" (click)="setDateShade()"><i class="fa fa-calendar mr-1" aria-hidden="true"></i><span style="margin-left: 2px">Date Created</span></a>
             </div>
         </div>
 
         <div class="dropdown d-inline">
-            <button type="button" class="btn btn-primary dropdown-toggle ml-1" id="inputBtn" data-toggle="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle ml-1 language-button" id="inputBtn" data-toggle="dropdown">
                 Language
             </button>
             <div class="dropdown-menu">

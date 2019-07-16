@@ -48,3 +48,15 @@
     -webkit-user-select: none; /* Chrome, Safari, and Opera */
     -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
+
+.language-button {
+    width: auto;
+}
+
+@media only screen and (max-width: 767px) {
+    .language-button {
+        width: 200px;
+        margin-top: -25px;
+        margin-bottom: 50px;
+    }
+}
