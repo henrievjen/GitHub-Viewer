@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
     if ((<HTMLInputElement> document.getElementById('navbar-username')).value.trim().length > 0) {
       this.appService.setUser((<HTMLInputElement> document.getElementById('navbar-username')).value);
       sessionStorage.setItem('username', (<HTMLInputElement> document.getElementById('navbar-username')).value);
-      (<HTMLInputElement> document.getElementById('navbar-username')).value = "";
+      (<HTMLInputElement> document.getElementById('navbar-username')).value = '';
       this.appService.navbarViewingPlaceholder();
     }
   }
@@ -31,13 +31,13 @@ export class NavbarComponent implements OnInit {
   }
 
   public navbarHomePlaceholder(): void {
-    (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Search Users";
+    (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = 'Search Users';
   }
 
   public navbarViewingPlaceholder(): void {
-    if(sessionStorage.getItem('username') && sessionStorage.getItem('username').length > 0) {
-      (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = "Viewing: " + sessionStorage.getItem('username');
-      (<HTMLInputElement> document.getElementById('navbar-username')).value = "";
+    if (sessionStorage.getItem('username') && sessionStorage.getItem('username').length > 0) {
+      (<HTMLInputElement> document.getElementById('navbar-username')).placeholder = 'Viewing: ' + sessionStorage.getItem('username');
+      (<HTMLInputElement> document.getElementById('navbar-username')).value = '';
     }
   }
 }
