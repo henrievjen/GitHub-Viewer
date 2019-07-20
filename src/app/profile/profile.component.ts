@@ -8,6 +8,8 @@ import { Profile } from '../github.api.interface';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  
+  public moreInfoClass = 'fa fa-caret-down';
 
   constructor(private appService: AppService) { }
 
@@ -30,6 +32,14 @@ export class ProfileComponent implements OnInit {
     }
 
     this.appService.errorAlertClose();
+  }
+
+  public showMoreInfo(): void {
+    if (this.moreInfoClass === 'fa fa-caret-down') {
+      this.moreInfoClass = "fa fa-caret-up";
+    } else {
+      this.moreInfoClass = "fa fa-caret-down";
+    }
   }
 
 }

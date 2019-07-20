@@ -7,6 +7,11 @@
     <h5 class="mb-4">Following: {{this.appService.user$.following}}</h5>
     <h5 class="mt-4 mb-4">Public Repos: {{this.appService.user$.public_repos}}</h5>
     <h5>Date Joined: {{this.appService.user$.created_at | date:'MM/dd/yyyy'}}</h5>
+
+    <button class="btn btn-primary mt-4" (click)="showMoreInfo()">
+        More Info
+        <span [class]="moreInfoClass"></span>
+    </button>
 </div>
 
 <!-- Message displays when user has not searched for a user yet -->
