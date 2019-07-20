@@ -21,6 +21,11 @@ export class NavbarComponent implements OnInit {
       sessionStorage.setItem('username', (<HTMLInputElement> document.getElementById('navbar-username')).value);
       (<HTMLInputElement> document.getElementById('navbar-username')).value = '';
       this.appService.navbarViewingPlaceholder();
+
+      // Resets state of 'Show More'  -  'Show Less' Button
+      this.appService.infoClass = 'fa fa-caret-down';
+      this.appService.showInfoState = false;
+      this.appService.showInfoMessage = 'Show More';
     }
   }
 

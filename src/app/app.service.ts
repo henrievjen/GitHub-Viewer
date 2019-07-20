@@ -18,6 +18,11 @@ export class AppService {
   public pageNumber = 1;
   public repoPages = 1;
 
+  // Show More  -  Show Less button
+  public infoClass: string;
+  public showInfoState: boolean;
+  public showInfoMessage: string;
+
   constructor(private http: HttpClient, private router: Router) {
     this.user$ = {};
     this.repos$ = [];

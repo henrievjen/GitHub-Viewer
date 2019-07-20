@@ -8,10 +8,12 @@ import { Profile } from '../github.api.interface';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  
-  public moreInfoClass = 'fa fa-caret-down';
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService) {
+    this.appService.infoClass = 'fa fa-caret-down';
+    this.appService.showInfoState = false;
+    this.appService.showInfoMessage = 'Show More';
+  }
 
   ngOnInit(): void {
     document.getElementById('profile-navbar').classList.add('active');
@@ -34,11 +36,15 @@ export class ProfileComponent implements OnInit {
     this.appService.errorAlertClose();
   }
 
-  public showMoreInfo(): void {
-    if (this.moreInfoClass === 'fa fa-caret-down') {
-      this.moreInfoClass = "fa fa-caret-up";
+  public showInfo(): void {
+    if (this.appService.infoClass === 'fa fa-caret-down') {
+      this.appService.infoClass = 'fa fa-caret-up';
+      this.appService.showInfoState = true;
+      this.appService.showInfoMessage = 'Show Less';
     } else {
-      this.moreInfoClass = "fa fa-caret-down";
+      this.appService.infoClass = 'fa fa-caret-down';
+      this.appService.showInfoState = false;
+      this.appService.showInfoMessage = 'Show More';
     }
   }
 
