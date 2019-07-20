@@ -1,3 +1,4 @@
+<!-- Profile Info -->
 <div *ngIf="this.appService.user$.login" class="container text-center mt-3 mb-5">
     <img [src]="this.appService.user$.avatar_url" id="profile-img">
     <h3 class="mt-5">Username: <a href="https://github.com/{{this.appService.user$.login}}" target="_blank">{{this.appService.user$.login}}</a></h3>
@@ -8,7 +9,9 @@
     <h5>Date Joined: {{this.appService.user$.created_at | date:'MM/dd/yyyy'}}</h5>
 </div>
 
-
-<div *ngIf="!this.appService.user$.login" class="w-100 h-100 text-center container" id="not-username-exists">
-    Search for a user to view a profile
+<!-- Message displays when user has not searched for a user yet -->
+<div *ngIf="!this.appService.user$.login" class="w-100 h-75 text-center position-absolute align-items-center row" id="not-username-exists">
+    <div class="col">
+        Search for a user to view a profile
+    </div>
 </div>

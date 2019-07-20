@@ -65,6 +65,8 @@
 </div>
 
 <!-- Message displays when user has not searched for a user yet -->
-<div *ngIf="!this.appService.user$.login" class="w-100 h-100 text-center" id="not-username-exists">
-    Search for a user to view repositories
+<div *ngIf="!this.appService.user$.login" class="w-100 h-75 text-center position-absolute align-items-center row" id="not-username-exists">
+    <div class="col">
+        Search for a user to view repositories
+    </div>
 </div>
