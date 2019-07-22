@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RepositoriesComponent } from './repositories/repositories.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FollowersComponent } from './followers/followers.component';
+import { FollowingComponent } from './following/following.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FollowersComponent } from './followers/followers.component';
     ProfileComponent,
     RepositoriesComponent,
     PageNotFoundComponent,
-    FollowersComponent
+    FollowersComponent,
+    FollowingComponent
   ],
   imports: [
     BrowserModule,

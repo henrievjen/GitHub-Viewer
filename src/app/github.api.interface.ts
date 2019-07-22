@@ -3,4 +3,5 @@ export interface Profile {
     id: number;
     public_repos: number;
     followers: number;
+    following: number;
 }

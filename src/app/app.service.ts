@@ -14,6 +14,7 @@ export class AppService {
   public user$: Profile | object;
   public repos$: Repos | [];
   public followers$: UserList | [];
+  public following$: UserList | [];
   public errorAlert = false;
   public errorLoad = true;
   public errorClose;
@@ -21,6 +22,8 @@ export class AppService {
   public repoPages = 1;
   public followerPageNumber = 1;
   public followerPages = 1;
+  public followingPageNumber = 1;
+  public followingPages = 1;
 
   // Show More  -  Show Less button
   public infoClass: string;
@@ -31,10 +34,13 @@ export class AppService {
     this.user$ = {};
     this.repos$ = [];
     this.followers$ = [];
+    this.following$ = [];
     this.pageNumber = 1;
     this.repoPages = 1;
     this.followerPageNumber = 1;
     this.followerPages = 1;
+    this.followingPageNumber = 1;
+    this.followingPages = 1;
   }
 
   public setUser(user) {
@@ -76,6 +82,10 @@ export class AppService {
 
   public getFollowers(user, page: number): Observable<UserList> {
     return this.http.get<UserList>('https://api.github.com/users/' + user + '/followers?page=' + page + '&per_page=21');
+  }
+
+  public getFollowing(user, page: number): Observable<UserList> {
+    return this.http.get<UserList>('https://api.github.com/users/' + user + '/following?page=' + page + '&per_page=21');
   }
 
   public errorAlertClose(): void {

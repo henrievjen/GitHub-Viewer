@@ -5,8 +5,10 @@
     <h5 class="mt-2 mb-4">ID: {{this.appService.user$.id}}</h5>
     
     <div *ngIf="this.appService.user$.type === 'User'">
-        <h5 class="mb-2"><a routerLink="/followers">Followers</a>: {{this.appService.user$.followers}}</h5>
-        <h5 class="mb-4">Following: {{this.appService.user$.following}}</h5>
+        <h5 class="mb-2" *ngIf="this.appService.user$.followers !== 0"><a routerLink="/followers">Followers</a>: {{this.appService.user$.followers}}</h5>
+        <h5 class="mb-2" *ngIf="this.appService.user$.followers === 0">Followers: {{this.appService.user$.followers}}</h5>
+        <h5 class="mb-4" *ngIf="this.appService.user$.following !== 0"><a routerLink="/following">Following</a>: {{this.appService.user$.following}}</h5>
+        <h5 class="mb-4" *ngIf="this.appService.user$.following === 0">Following: {{this.appService.user$.following}}</h5>
     </div>
 
     <h5 class="mt-4 mb-4">Public Repos: {{this.appService.user$.public_repos}}</h5>
