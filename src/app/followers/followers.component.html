@@ -1,0 +1,21 @@
+<div class="container">
+  <!-- Top Page Navigation Buttons -->
+  <div class="text-center w-100 followerPageBtnGroup" data-toggle="buttons">
+    <button class="btn btn-outline-primary ml-1 mr-1 mt-1 mb-4" *ngFor="let dummy of ' '.repeat(this.appService.followerPages).split(''), let x = index" (click)="setPageNumber(x + 1); setBtnState(x + 1)">{{x + 1}}</button>
+  </div>
+
+  <!-- Followers -->
+  <div class="row container">
+  <div *ngFor="let follower of this.appService.followers$" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3" style="min-width: 200px">
+    <div class="border border-secondary rounded inner-user-div text-center">
+      <img [src]="follower.avatar_url" class="follower-image">
+      <h4 class="mb-2">{{follower.login}}</h4>
+    </div>
+  </div>
+  </div>
+
+  <!-- Bottom Page Navigation Buttons -->
+  <div class="text-center w-100 followerPageBtnGroup" data-toggle="buttons">
+  <button class="btn btn-outline-primary ml-1 mr-1 mt-1 mb-4" *ngFor="let dummy of ' '.repeat(this.appService.followerPages).split(''), let x = index" (click)="setPageNumber(x + 1); setBtnState(x + 1)">{{x + 1}}</button>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Profile } from './github.api.interface';
 import { Router } from '@angular/router';
 import { Repos } from './github.api.repos.interface';
+import { UserList } from './github.api.users.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,14 @@ export class AppService {
 
   public user$: Profile | object;
   public repos$: Repos | [];
+  public followers$: UserList | [];
   public errorAlert = false;
   public errorLoad = true;
   public errorClose;
   public pageNumber = 1;
   public repoPages = 1;
+  public followerPageNumber = 1;
+  public followerPages = 1;
 
   // Show More  -  Show Less button
   public infoClass: string;
@@ -26,8 +30,11 @@ export class AppService {
   constructor(private http: HttpClient, private router: Router) {
     this.user$ = {};
     this.repos$ = [];
+    this.followers$ = [];
     this.pageNumber = 1;
     this.repoPages = 1;
+    this.followerPageNumber = 1;
+    this.followerPages = 1;
   }
 
   public setUser(user) {
@@ -65,6 +72,10 @@ export class AppService {
 
   public getRepos(user, page: number): Observable<Repos> {
     return this.http.get<Repos>('https://api.github.com/users/' + user + '/repos?page=' + page + '&per_page=100');
+  }
+
+  public getFollowers(user, page: number): Observable<UserList> {
+    return this.http.get<UserList>('https://api.github.com/users/' + user + '/followers?page=' + page + '&per_page=21');
   }
 
   public errorAlertClose(): void {

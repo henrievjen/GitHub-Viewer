@@ -30,3 +30,9 @@
         margin-bottom: 50px;
     }
 }
+
+.inner-user-div {
+    width: 105%;
+    height: 100%;
+    padding: 10px;
+}

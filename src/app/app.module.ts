@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RepositoriesComponent } from './repositories/repositories.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FollowersComponent } from './followers/followers.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HomeComponent,
     ProfileComponent,
     RepositoriesComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FollowersComponent
   ],
   imports: [
     BrowserModule,

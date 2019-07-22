@@ -1,8 +1,10 @@
-<div class="w-100 h-100 text-center container" id="page-not-found-text">
-  <p style="font-size: 200%">Sorry, we couldn't find that page!</p>
+<div class="w-100 h-75 text-center position-absolute align-items-center row" id="page-not-found-text">
+  <div class="col">
+    <p style="font-size: 200%">Sorry, we couldn't find that page!</p>
   <p style="font-size: 200%">Try searching for a GitHub user</p>
   <form action="#" autocomplete="off">
     <input class="mt-5" id="username" type="text" placeholder="Username" name="username" />
     <input type="submit" class="btn btn-primary" id="inputBtn" value="Search" title="Search for User" (click)="this.validation()">
   </form>
+  </div>
 </div>

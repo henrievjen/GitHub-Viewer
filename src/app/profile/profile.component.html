@@ -5,7 +5,7 @@
     <h5 class="mt-2 mb-4">ID: {{this.appService.user$.id}}</h5>
     
     <div *ngIf="this.appService.user$.type === 'User'">
-        <h5 class="mb-2">Followers: {{this.appService.user$.followers}}</h5>
+        <h5 class="mb-2"><a routerLink="/followers">Followers</a>: {{this.appService.user$.followers}}</h5>
         <h5 class="mb-4">Following: {{this.appService.user$.following}}</h5>
     </div>
 
@@ -27,6 +27,7 @@
 
 <!-- More Info -->
 <div *ngIf="this.appService.showInfoState" class="container text-center mt-4 mb-5">
+    <hr style="width: 200px">
     <h5 class="mb-2" *ngIf="this.appService.user$.type !== null">{{this.appService.user$.type}}</h5>
     <hr style="width: 200px">
     <h5 class="mb-2" *ngIf="this.appService.user$.bio !== null">Bio: {{this.appService.user$.bio}}</h5>
