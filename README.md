@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
 
+## Purpose
+
+This application serves as an easier GUI (Graphical User Interface) for GitHub users. This GUI is intended for beginners, who have little to no knowledge of Git, GitHub, or the programming world as a whole.
+
+Search for a GitHub user either on the home screen or in the top right corner of the screen on the Navigation Menu. View information about a particular user on the ‘Profile’ page and view his or her Repositories on the ‘Repositories’ page. Navigate to these pages using the tabs on the Navigation Menu.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
