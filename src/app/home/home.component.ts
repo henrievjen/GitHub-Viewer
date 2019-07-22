@@ -30,6 +30,11 @@ export class HomeComponent implements OnInit {
       this.appService.setUser((<HTMLInputElement> document.getElementById('username')).value);
       sessionStorage.setItem('username', (<HTMLInputElement> document.getElementById('username')).value);
       (<HTMLInputElement> document.getElementById('username')).value = "";
+
+      // Resets Page Numbers
+      this.appService.pageNumber = 1;
+      this.appService.followerPageNumber = 1;
+      this.appService.followingPageNumber = 1;
     }
   }
 }

@@ -22,6 +22,11 @@ export class NavbarComponent implements OnInit {
       (<HTMLInputElement> document.getElementById('navbar-username')).value = '';
       this.appService.navbarViewingPlaceholder();
 
+      // Resets Page Numbers
+      this.appService.pageNumber = 1;
+      this.appService.followerPageNumber = 1;
+      this.appService.followingPageNumber = 1;
+
       // Resets state of 'Show More'  -  'Show Less' Button
       this.appService.infoClass = 'fa fa-caret-down';
       this.appService.showInfoState = false;
