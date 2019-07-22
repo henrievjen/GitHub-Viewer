@@ -45,6 +45,16 @@ export class FollowersComponent implements OnInit {
     
   }
 
+  public validation(user: string): void {
+    this.appService.setUser(user);
+    sessionStorage.setItem('username', user);
+
+    // Resets Page Numbers
+    this.appService.pageNumber = 1;
+    this.appService.followerPageNumber = 1;
+    this.appService.followingPageNumber = 1;
+  }
+
   public setPageNumber(num: number): void {
     this.appService.followerPageNumber = num;
     this.ngOnInit();

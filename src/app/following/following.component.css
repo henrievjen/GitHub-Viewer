@@ -2,3 +2,13 @@
     width: 55%;
     margin-bottom: 15px;
 }
+
+a:not([href]) {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+a:not([href]):hover {
+    cursor: pointer;
+    color: #007bff;
+}

@@ -14,7 +14,7 @@
     <h5 class="mt-4 mb-4">Public Repos: {{this.appService.user$.public_repos}}</h5>
     <h5>Date Joined: {{this.appService.user$.created_at | date:'MM/dd/yyyy'}}</h5>
 
-    <button class="btn btn-primary mt-4" (click)="showInfo()" style="width: 125px">
+    <button [style.margin-bottom.px]="showButtonBottomMargin" class="btn btn-primary mt-4" (click)="showInfo()" style="width: 125px">
         {{this.appService.showInfoMessage}}
         <span [class]="appService.infoClass"></span>
     </button>
@@ -28,7 +28,7 @@
 </div>
 
 <!-- More Info -->
-<div *ngIf="this.appService.showInfoState" class="container text-center mt-4 mb-5">
+<div *ngIf="this.appService.showInfoState" class="container text-center mt-4" style="margin-bottom: 80px">
     <hr style="width: 200px">
     <h5 class="mb-2" *ngIf="this.appService.user$.type !== null">{{this.appService.user$.type}}</h5>
     <hr style="width: 200px">
@@ -39,4 +39,5 @@
         <span *ngIf="this.appService.user$.site_admin">Yes</span>
         <span *ngIf="!this.appService.user$.site_admin">No</span>
     </h5>
+    <h5 *ngIf="this.appService.user$.blog">Blog: <a href="{{this.appService.user$.blog}}" target="_blank">{{this.appService.user$.blog}}</a></h5>
 </div>

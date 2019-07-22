@@ -9,6 +9,8 @@ import { Profile } from '../github.api.interface';
 })
 export class ProfileComponent implements OnInit {
 
+  public showButtonBottomMargin = 90;
+
   constructor(private appService: AppService) {
     this.appService.infoClass = 'fa fa-caret-down';
     this.appService.showInfoState = false;
@@ -38,10 +40,12 @@ export class ProfileComponent implements OnInit {
 
   public showInfo(): void {
     if (this.appService.infoClass === 'fa fa-caret-down') {
+      this.showButtonBottomMargin = 0;
       this.appService.infoClass = 'fa fa-caret-up';
       this.appService.showInfoState = true;
       this.appService.showInfoMessage = 'Show Less';
     } else {
+      this.showButtonBottomMargin = 90;
       this.appService.infoClass = 'fa fa-caret-down';
       this.appService.showInfoState = false;
       this.appService.showInfoMessage = 'Show More';

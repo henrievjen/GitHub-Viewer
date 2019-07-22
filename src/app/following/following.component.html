@@ -13,7 +13,7 @@
   <div *ngFor="let following of this.appService.following$" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3" style="min-width: 200px">
     <div class="border border-secondary rounded inner-user-div text-center">
       <img [src]="following.avatar_url" class="following-image">
-      <h4 class="mb-2">{{following.login}}</h4>
+      <a><h4 class="mb-2" (click)="validation(following.login)">{{following.login}}</h4></a>
     </div>
   </div>
   </div>
