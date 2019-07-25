@@ -27,6 +27,12 @@ export class FollowersComponent implements OnInit {
       this.appService.getFollowers(sessionStorage.getItem('username'), this.appService.followerPageNumber).subscribe((follower$: UserList) => {
         this.appService.followers$ = follower$;
 
+        for(let i = 0; i < (follower$.length); i++) {
+          this.appService.getUsers(follower$[i].login).subscribe((user$: Profile) => {
+            this.appService.followers$[i] = user$;
+          });
+        }
+
         if (document.getElementsByClassName('followerPageBtnGroup')[0].children[this.appService.followerPageNumber - 1]) {
           document.getElementsByClassName('followerPageBtnGroup')[0].children[this.appService.followerPageNumber - 1].classList.add('active');
         }
