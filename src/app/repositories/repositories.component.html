@@ -7,7 +7,7 @@
 
     <!-- Search and Sort -->
     <div class="text-center w-100">
-        <input type="text" class="mt-3 mb-5 mr-1" id="username" placeholder="Search for a Repository" autocomplete="off" />
+        <input type="text" class="mt-3 mb-5 mr-1" id="repoName" placeholder="Search for a Repository" autocomplete="off" (input)="sortRepos($event.target.value)" />
         <div class="dropdown d-inline">
             <button type="button" class="btn btn-primary dropdown-toggle" id="inputBtn" data-toggle="dropdown">
                 Sort

@@ -64,6 +64,45 @@ export class RepositoriesComponent implements OnInit {
     }
   }
 
+  public sortRepos(searchValue: string): void {
+    let i = 0;
+
+    this.appService.getRepos(sessionStorage.getItem('username'), this.appService.pageNumber).subscribe((repos$: Repos) => {
+      this.appService.repos$ = repos$;
+      if (document.getElementsByClassName('repoPageBtnGroup')[0].children[this.appService.pageNumber - 1]) {
+        document.getElementsByClassName('repoPageBtnGroup')[0].children[this.appService.pageNumber - 1].classList.add('active');
+      }
+
+      if (document.getElementsByClassName('repoPageBtnGroup')[1].children[this.appService.pageNumber - 1]) {
+        document.getElementsByClassName('repoPageBtnGroup')[1].children[this.appService.pageNumber - 1].classList.add('active');
+      }
+    }, () => {
+      console.log('An Error Occured');
+    }, 
+    () => {
+      if(searchValue !== '') {
+        while (i < this.appService.repos$.length) {
+          if (this.appService.repos$[i].name.startsWith(searchValue)) {
+            i++;
+          } else {
+            this.appService.repos$.splice(i, 1);
+          }
+        }
+      } else {
+        this.appService.getRepos(sessionStorage.getItem('username'), this.appService.pageNumber).subscribe((repos$: Repos) => {
+          this.appService.repos$ = repos$;
+          if (document.getElementsByClassName('repoPageBtnGroup')[0].children[this.appService.pageNumber - 1]) {
+            document.getElementsByClassName('repoPageBtnGroup')[0].children[this.appService.pageNumber - 1].classList.add('active');
+          }
+    
+          if (document.getElementsByClassName('repoPageBtnGroup')[1].children[this.appService.pageNumber - 1]) {
+            document.getElementsByClassName('repoPageBtnGroup')[1].children[this.appService.pageNumber - 1].classList.add('active');
+          }
+        });
+      }
+    });
+  }
+
   public setAlphabetShade(): void {
     (<HTMLElement> document.getElementsByClassName('dropdown-item')[0]).style.backgroundColor = 'rgb(200, 200, 200)';
     (<HTMLElement> document.getElementsByClassName('dropdown-item')[1]).style.backgroundColor = 'rgb(256, 256, 256)';
