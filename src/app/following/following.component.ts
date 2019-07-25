@@ -10,7 +10,6 @@ import { UserList } from '../github.api.users.interface';
 })
 export class FollowingComponent implements OnInit {
 
-  
   constructor(private appService: AppService) { }
 
   ngOnInit() {
@@ -27,6 +26,12 @@ export class FollowingComponent implements OnInit {
 
       this.appService.getFollowing(sessionStorage.getItem('username'), this.appService.followingPageNumber).subscribe((following$: UserList) => {
         this.appService.following$ = following$;
+
+        for(let i = 0; i < (following$.length); i++) {
+          this.appService.getUsers(following$[i].login).subscribe((user$: Profile) => {
+            this.appService.following$[i] = user$;
+          });
+        }
 
         if (document.getElementsByClassName('followingPageBtnGroup')[0].children[this.appService.followingPageNumber - 1]) {
           document.getElementsByClassName('followingPageBtnGroup')[0].children[this.appService.followingPageNumber - 1].classList.add('active');
@@ -52,7 +57,7 @@ export class FollowingComponent implements OnInit {
 
     // Resets Page Numbers
     this.appService.pageNumber = 1;
-    this.appService.followerPageNumber = 1;
+    this.appService.followingPageNumber = 1;
     this.appService.followingPageNumber = 1;
   }
 

@@ -8,12 +8,15 @@
     <button class="btn btn-outline-primary ml-1 mr-1 mt-1 mb-4" *ngFor="let dummy of ' '.repeat(this.appService.followingPages).split(''), let x = index" (click)="setPageNumber(x + 1); setBtnState(x + 1)">{{x + 1}}</button>
   </div>
 
-  <!-- Following -->
+  <!-- following -->
   <div class="row container">
   <div *ngFor="let following of this.appService.following$" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3" style="min-width: 200px">
     <div class="border border-secondary rounded inner-user-div text-center">
       <img [src]="following.avatar_url" class="following-image">
-      <a><h4 class="mb-2" (click)="validation(following.login)">{{following.login}}</h4></a>
+      <a><h4 class="mb-3" (click)="validation(following.login)">{{following.login}}</h4></a>
+      <h6>following: {{following.following}}</h6>
+      <h6>Following: {{following.following}}</h6>
+      <h6 class="mt-2">Public Repos: {{following.public_repos}}</h6>
     </div>
   </div>
   </div>
@@ -22,5 +25,5 @@
   <div class="text-center w-100 followingPageBtnGroup" data-toggle="buttons">
   <button class="btn btn-outline-primary ml-1 mr-1 mt-1 mb-4" *ngFor="let dummy of ' '.repeat(this.appService.followingPages).split(''), let x = index" (click)="setPageNumber(x + 1); setBtnState(x + 1)">{{x + 1}}</button>
   </div>
-  
+
 </div>
