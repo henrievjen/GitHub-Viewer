@@ -2,7 +2,7 @@
 
     <!-- Top Page Navigation Buttons -->
     <div class="text-center w-100 repoPageBtnGroup" data-toggle="buttons">
-        <button class="btn btn-outline-primary ml-1 mr-1 mt-1 mb-4" *ngFor="let dummy of ' '.repeat(this.appService.repoPages).split(''), let x = index" (click)="setPageNumber(x + 1); setBtnState(x + 1)">{{x + 1}}</button>
+        <button class="btn btn-outline-primary ml-1 mr-1 mt-1 mb-4" *ngFor="let dummy of ' '.repeat(this.appService.repoPages).split(''), let x = index" (click)="setPageNumber(x + 1); setBtnState()">{{x + 1}}</button>
     </div>
 
     <!-- Search and Sort -->
@@ -55,7 +55,7 @@
 
     <!-- Bottom Page Navigation Buttons -->
     <div class="text-center w-100 repoPageBtnGroup" data-toggle="buttons">
-        <button class="btn btn-outline-primary ml-1 mr-1 mt-1 mb-4" *ngFor="let dummy of ' '.repeat(this.appService.repoPages).split(''), let x = index" (click)="setPageNumber(x + 1); setBtnState(x + 1)">{{x + 1}}</button>
+        <button class="btn btn-outline-primary ml-1 mr-1 mt-1 mb-4" *ngFor="let dummy of ' '.repeat(this.appService.repoPages).split(''), let x = index" (click)="setPageNumber(x + 1); setBtnState()">{{x + 1}}</button>
     </div>
 </div>
 

@@ -51,7 +51,7 @@ export class RepositoriesComponent implements OnInit {
     this.ngOnInit();
   }
 
-  public setBtnState(num): void {
+  public setBtnState(): void {
     const children1 = document.getElementsByClassName('repoPageBtnGroup')[0].children;
     const children2 = document.getElementsByClassName('repoPageBtnGroup')[1].children;
 
@@ -76,30 +76,29 @@ export class RepositoriesComponent implements OnInit {
       if (document.getElementsByClassName('repoPageBtnGroup')[1].children[this.appService.pageNumber - 1]) {
         document.getElementsByClassName('repoPageBtnGroup')[1].children[this.appService.pageNumber - 1].classList.add('active');
       }
-    }, () => {
+    }, (err) => {
       console.log('An Error Occured');
     }, 
     () => {
       if(searchValue !== '') {
-        while (i < this.appService.repos$.length) {
+        while (i < (<Array<Repos>> this.appService.repos$).length) {
           if (this.appService.repos$[i].name.startsWith(searchValue)) {
             i++;
           } else {
-            this.appService.repos$.splice(i, 1);
+            (<Array<Repos>> this.appService.repos$).splice(i, 1);
           }
         }
       } else {
         this.appService.getRepos(sessionStorage.getItem('username'), this.appService.pageNumber).subscribe((repos$: Repos) => {
           this.appService.repos$ = repos$;
-          if (document.getElementsByClassName('repoPageBtnGroup')[0].children[this.appService.pageNumber - 1]) {
-            document.getElementsByClassName('repoPageBtnGroup')[0].children[this.appService.pageNumber - 1].classList.add('active');
-          }
-    
-          if (document.getElementsByClassName('repoPageBtnGroup')[1].children[this.appService.pageNumber - 1]) {
-            document.getElementsByClassName('repoPageBtnGroup')[1].children[this.appService.pageNumber - 1].classList.add('active');
-          }
+
+          this.appService.getUsers(sessionStorage.getItem('username')).subscribe((user$: Profile) => {
+            this.appService.repoPages = (user$.public_repos / 100) + 1;
+          });
         });
       }
+
+      this.appService.repoPages = Math.ceil(i / 100);
     });
   }
 
