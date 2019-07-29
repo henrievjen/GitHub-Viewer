@@ -91,7 +91,7 @@ export class RepositoriesComponent implements OnInit {
         }
 
         const children1 = document.getElementsByClassName('repoPageBtnGroup')[0].children;
-        const children2 = document.getElementsByClassName('repoPageBtnGroup')[0].children;
+        const children2 = document.getElementsByClassName('repoPageBtnGroup')[1].children;
         children1[0].classList.add('active');
         children2[0].classList.add('active');
       } else {
@@ -112,7 +112,7 @@ export class RepositoriesComponent implements OnInit {
             children1[this.appService.pageNumber - 1].classList.add('active');
             children2[this.appService.pageNumber - 1].classList.add('active');
             
-          }, 1);
+          }, 100);
         });
       }
 
