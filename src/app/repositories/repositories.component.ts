@@ -3,6 +3,7 @@ import { AppService } from '../app.service';
 import { Profile } from '../github.api.interface';
 import { Repos } from '../github.api.repos.interface';
 import { Router } from '@angular/router';
+import { promise } from 'protractor';
 
 @Component({
   selector: 'app-repositories',
@@ -88,6 +89,11 @@ export class RepositoriesComponent implements OnInit {
             (<Array<Repos>> this.appService.repos$).splice(i, 1);
           }
         }
+
+        const children1 = document.getElementsByClassName('repoPageBtnGroup')[0].children;
+        const children2 = document.getElementsByClassName('repoPageBtnGroup')[0].children;
+        children1[0].classList.add('active');
+        children2[0].classList.add('active');
       } else {
         this.appService.getRepos(sessionStorage.getItem('username'), this.appService.pageNumber).subscribe((repos$: Repos) => {
           this.appService.repos$ = repos$;
@@ -95,6 +101,18 @@ export class RepositoriesComponent implements OnInit {
           this.appService.getUsers(sessionStorage.getItem('username')).subscribe((user$: Profile) => {
             this.appService.repoPages = (user$.public_repos / 100) + 1;
           });
+        },
+        (err) => {
+          console.log('An error occured');
+        },
+        () => {
+          const children1 = document.getElementsByClassName('repoPageBtnGroup')[0].children;
+          const children2 = document.getElementsByClassName('repoPageBtnGroup')[0].children;
+          setTimeout(() => {
+            children1[this.appService.pageNumber - 1].classList.add('active');
+            children2[this.appService.pageNumber - 1].classList.add('active');
+            
+          }, 1);
         });
       }
 
