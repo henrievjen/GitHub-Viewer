@@ -3,7 +3,6 @@ import { AppService } from '../app.service';
 import { Profile } from '../github.api.interface';
 import { Repos } from '../github.api.repos.interface';
 import { Router } from '@angular/router';
-import { promise } from 'protractor';
 
 @Component({
   selector: 'app-repositories',
@@ -79,9 +78,9 @@ export class RepositoriesComponent implements OnInit {
       }
     }, (err) => {
       console.log('An Error Occured');
-    }, 
+    },
     () => {
-      if(searchValue !== '') {
+      if (searchValue !== '') {
         while (i < (<Array<Repos>> this.appService.repos$).length) {
           if (this.appService.repos$[i].name.startsWith(searchValue)) {
             i++;
@@ -111,7 +110,6 @@ export class RepositoriesComponent implements OnInit {
           setTimeout(() => {
             children1[this.appService.pageNumber - 1].classList.add('active');
             children2[this.appService.pageNumber - 1].classList.add('active');
-            
           }, 100);
         });
       }
